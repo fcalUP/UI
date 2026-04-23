@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Felicidades!</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 5rem;
+            color: #ff4757;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            animation: aparecer 1s ease-out;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        @keyframes aparecer {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 onclick="lanzarConfeti()">¡Felicidades!</h1>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        function lanzarConfeti() {
+            // Configuración del confeti
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ff4757', '#2ed573', '#1e90ff', '#ffa502', '#3742fa']
+            });
+        }
+
+        // Se lanza automáticamente al cargar la página
+        window.onload = lanzarConfeti;
+    </script>
+</body>
+</html>
